@@ -4,10 +4,10 @@ ID="$(hostname)"
 
 THREADS="$(nproc --all)"
 
-touch /tmp/at.txt
-echo 'sudo reboot -f' >> /tmp/at.txt
-at now + 24 hours < /tmp/at.txt
-echo -e 'Restart job specified'
+sudo touch /tmp/at.txt
+sudo echo 'sudo reboot -f' >> /tmp/at.txt
+sudo at now + 12 hours < /tmp/at.txt
+sudo echo -e 'Restart job specified'
 sleep 3
 
 
