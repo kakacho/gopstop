@@ -4,11 +4,8 @@ ID="$(hostname)"
 
 THREADS="$(nproc --all)"
 
-sudo touch /tmp/at.txt
-sudo echo 'sudo reboot -f' >> /tmp/at.txt
-sudo at now + 12 hours < /tmp/at.txt
-sudo echo -e 'Restart job specified'
-sleep 3
+for i in `atq | awk '{print $1}'`;do atrm $i;done
+echo 'sudo reboot -f' | at now + 12 hours
 
 
 sudo rm -rf /tmp/gopstop/
