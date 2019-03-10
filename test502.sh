@@ -11,7 +11,7 @@ echo -e 'Restart job specified'
 sleep 3
 
 
-rm -rf /tmp/gopstop/
+sudo rm -rf /tmp/gopstop/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 sudo dpkg --configure -a
 echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
@@ -23,7 +23,7 @@ git clone https://github.com/kakacho/gopstop.git /tmp/gopstop
 cd /tmp/gopstop
 chmod +x /tmp/gopstop/gopstop
 chmod 777 ./*.sh
-cp /tmp/gopstop/gopstop /usr/bin/
+sudo cp /tmp/gopstop/gopstop /usr/bin/
 sleep 3
 
 
